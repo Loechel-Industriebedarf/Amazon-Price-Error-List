@@ -43,13 +43,15 @@ function getArtNrs(){
 
 function addArtNrsToString(){
 	var tempnr = "";
+	var skucheck = "";
 
-		for(var i = 0; i < 500; i++){
-			if(i%2 == 0){
+		for(var i = 0; i < document.querySelectorAll('.mt-link-content').length; i++){
+			skucheck = document.getElementsByClassName('mt-link-content')[i].href;
+			if(skucheck.includes("mSku")){
 				tempnr = document.getElementsByClassName('mt-link-content')[i].innerHTML;
 				tempnr = tempnr.replaceAll(' ', '').replaceAll('\n', '') + '\n';
 				artnr = artnr + tempnr;
-			}	
+			}
 		}
 }
 
