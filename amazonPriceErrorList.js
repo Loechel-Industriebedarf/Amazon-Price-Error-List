@@ -31,14 +31,20 @@ function getArtNrs(){
 	if(currentpage < maxpages){
 		setTimeout(function(){ 
 			eventFire(document.querySelectorAll("a[href='#next']")[0], 'click');
-			getArtNrs(artnr);
+			addArtNrsToString();
+			setTimeout(function(){ 
+				getArtNrs(artnr);
+			}, 2500);
 		}, 5000);
 	}
 	else{
-		downloadFile("amazonPriceErrorList.txt", artnr);
+		addArtNrsToString();
+		setTimeout(function(){ 
+			downloadFile("amazonPriceErrorList.txt", artnr);
+		}, 2500);	
 	}
 	
-	addArtNrsToString();
+	
 }
 
 function addArtNrsToString(){
